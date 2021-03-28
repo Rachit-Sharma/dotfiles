@@ -254,8 +254,5 @@
 
 (use-package magit)
 
-(use-package evil-magit
-  :after magit)
-
 (use-package rainbow-delimiters
 	     :hook (prog-mode . rainbow-delimiters-mode))

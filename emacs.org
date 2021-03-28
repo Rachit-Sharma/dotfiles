@@ -395,9 +395,6 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 
   (use-package magit)
 
-  (use-package evil-magit
-    :after magit)
-
 #+end_src
 
 ** Rainbow Delimiters
