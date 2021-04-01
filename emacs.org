@@ -52,6 +52,8 @@
 
 ** Automatically Update Packages
 
+You might want to comment this out in work machines if things already work. Test out the updates on personal machine first.
+
 #+begin_src emacs-lisp
 
   (use-package auto-package-update
