@@ -415,7 +415,8 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 
   (use-package lsp-mode
     :commands (lsp lsp-deferred)
-    :hook (lsp-mode . rachit/lsp-mode-setup)
+    :hook ((prog-mode . lsp-deferred)
+           (lsp-mode . rachit/lsp-mode-setup))
     :init
     (setq lsp-keymap-prefix "C-c l")
     :config
@@ -437,7 +438,15 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 #+begin_src emacs-lisp
 
   (use-package dap-mode
-    :commands dap-debug)
+    :commands dap-debug
+    :after (lsp general)
+    :config
+    (require 'dap-mode)
+    (dap-node-setup)
+    (general-define-key
+     :keymaps 'lsp-mode-map
+     :prefix lsp-keymap-prefix
+     "d" '(dap-hydra t :wk "debugger"))) ;; Automatically installs Node debug adapter if needed
 
 #+end_src
 
@@ -445,7 +454,7 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 
 **** Javascript, Typescript, and JSX
 
-Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the language server]], and typescript via npm.
+Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the language server]], and typescript globally via npm.
 
 #+begin_src emacs-lisp
 
@@ -461,10 +470,7 @@ Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the languag
     :mode "\\.ts\\'"
     :hook (typescript-mode . lsp-deferred)
     :custom
-    (typescript-indent-level 2)
-    :config
-    (require 'dap-mode)
-    (dap-node-setup)) ;; Automatically installs Node debug adapter if needed
+    (typescript-indent-level 2))
 
 #+end_src
 

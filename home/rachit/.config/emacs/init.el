@@ -246,7 +246,8 @@
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (lsp-mode . rachit/lsp-mode-setup)
+  :hook ((prog-mode . lsp-deferred)
+         (lsp-mode . rachit/lsp-mode-setup))
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
@@ -262,7 +263,15 @@
   :after (lsp ivy))
 
 (use-package dap-mode
-  :commands dap-debug)
+  :commands dap-debug
+  :after (lsp general)
+  :config
+  (require 'dap-mode)
+  (dap-node-setup)
+  (general-define-key
+   :keymaps 'lsp-mode-map
+   :prefix lsp-keymap-prefix
+   "d" '(dap-hydra t :wk "debugger"))) ;; Automatically installs Node debug adapter if needed
 
 (use-package rjsx-mode
   :mode (("\\.js\\'" . rjsx-mode)
@@ -276,10 +285,7 @@
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp-deferred)
   :custom
-  (typescript-indent-level 2)
-  :config
-  (require 'dap-mode)
-  (dap-node-setup)) ;; Automatically installs Node debug adapter if needed
+  (typescript-indent-level 2))
 
 (use-package prettier-js
   :after (rjsx-mode)
