@@ -33,13 +33,13 @@
 ;;Used to check package loading during startup
 ;;(setq use-package-verbose t)
 
-(use-package auto-package-update
-  :custom
-  (auto-package-update-interval 7)
-  (auto-package-update-prompt-before-update t)
-  :config
-  (auto-package-update-maybe) ;;If emacs is run fresh
-  (auto-package-update-at-time "09:00")) ;;If emacs is left running
+;; (use-package auto-package-update
+;;   :custom
+;;   (auto-package-update-interval 7)
+;;   (auto-package-update-prompt-before-update t)
+;;   :config
+;;   (auto-package-update-maybe) ;;If emacs is run fresh
+;;   (auto-package-update-at-time "09:00")) ;;If emacs is left running
 
 (setq inhibit-startup-message t)
 
@@ -60,6 +60,8 @@
                 shell-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(set-face-attribute 'default nil :height 150)
 
 ;; You must run (all-the-icons-install-fonts)
 ;; once after installing this package!
@@ -175,7 +177,7 @@
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face))))
+    (set-face-attribute (car face) nil :weight 'regular :height (cdr face))))
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)

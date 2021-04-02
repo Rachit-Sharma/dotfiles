@@ -56,13 +56,13 @@ You might want to comment this out in work machines if things already work. Test
 
 #+begin_src emacs-lisp
 
-  (use-package auto-package-update
-    :custom
-    (auto-package-update-interval 7)
-    (auto-package-update-prompt-before-update t)
-    :config
-    (auto-package-update-maybe) ;;If emacs is run fresh
-    (auto-package-update-at-time "09:00")) ;;If emacs is left running
+  ;; (use-package auto-package-update
+  ;;   :custom
+  ;;   (auto-package-update-interval 7)
+  ;;   (auto-package-update-prompt-before-update t)
+  ;;   :config
+  ;;   (auto-package-update-maybe) ;;If emacs is run fresh
+  ;;   (auto-package-update-at-time "09:00")) ;;If emacs is left running
 
 #+end_src
 
@@ -91,6 +91,14 @@ This section configures basic UI settings that remove unneeded elements to make 
                   shell-mode-hook
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+#+end_src
+
+** Font
+
+#+begin_src emacs-lisp
+
+  (set-face-attribute 'default nil :height 150)
 
 #+end_src
 
@@ -272,7 +280,7 @@ This section contains the basic configuration for =org-mode=. It also contains c
                     (org-level-6 . 1.1)
                     (org-level-7 . 1.1)
                     (org-level-8 . 1.1)))
-      (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face))))
+      (set-face-attribute (car face) nil :weight 'regular :height (cdr face))))
 
 #+end_src
 
