@@ -30,8 +30,8 @@
 (setq use-package-always-ensure t)
 ;;Used for :diminish
 (use-package diminish)
-;;Used to check package loading during startup
-;;(setq use-package-verbose t)
+;; Used to check package loading during startup
+;; (setq use-package-verbose t)
 
 ;; (use-package auto-package-update
 ;;   :custom
