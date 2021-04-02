@@ -45,8 +45,8 @@
   (setq use-package-always-ensure t)
   ;;Used for :diminish
   (use-package diminish)
-  ;;Used to check package loading during startup
-  ;;(setq use-package-verbose t)
+  ;; Used to check package loading during startup
+  ;; (setq use-package-verbose t)
 
 #+end_src
 
@@ -453,6 +453,10 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 #+end_src
 
 *** Languags
+
+**** Markdown
+
+If =M-x markdown-preview= fails [[https://stackoverflow.com/questions/14231043/emacs-markdown-mode-error-on-preview-bin-bash-markdown-command-not-found][try installing a markdown parser like markdown]].
 
 **** Javascript, Typescript, and JSX
 
