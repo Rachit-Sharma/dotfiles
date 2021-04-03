@@ -264,7 +264,9 @@
   (lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode))
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
 
 (use-package lsp-treemacs
   :after lsp)
