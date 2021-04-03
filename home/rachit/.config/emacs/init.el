@@ -163,9 +163,11 @@
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
 
-  (setq org-agenda-files
-        '("~/Hello.org"
-          "/mnt/B8D2174BD2170D6E/Infosys/asset-return.org"))
+  (setq org-agenda-files '("~/Org/Tasks.org"))
+
+  (setq org-refile-targets '(("~/Org/Archive.org" :maxlevel . 1)
+                             ("~/Org/Tasks.org" :maxlevel . 1)))
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
   (dolist (face '((org-level-1 . 1.2)
                   (org-level-2 . 1.1)
