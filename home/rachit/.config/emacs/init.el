@@ -235,10 +235,16 @@
   :after (counsel projectile)
   :config (counsel-projectile-mode))
 
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
 (use-package magit
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package treemacs-magit
+  :after (treemacs magit))
 
 (use-package rainbow-delimiters
 	     :hook (prog-mode . rainbow-delimiters-mode))
@@ -391,6 +397,9 @@
   :after evil
   :config
   (evil-collection-init))
+
+(use-package treemacs-evil
+  :after (treemacs evil))
 
 (use-package hydra
   :defer t)
