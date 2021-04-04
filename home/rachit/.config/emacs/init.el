@@ -252,7 +252,9 @@
 ;; Ensuring that breadcrumbs appear
 (defun rachit/lsp-mode-setup()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-  (lsp-headerline-breadcrumb-mode))
+  (lsp-headerline-breadcrumb-mode)
+  (setq gc-cons-threshold (* 100 1000 1000))
+  (setq read-process-output-max (* 1024 1024))) ;; 1mb
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
