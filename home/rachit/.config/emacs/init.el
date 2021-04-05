@@ -167,8 +167,8 @@
 
   (setq org-agenda-files '("~/Org/Tasks.org"))
 
-  (setq org-refile-targets '(("~/Org/Archive.org" :maxlevel . 1)
-                             ("~/Org/Tasks.org" :maxlevel . 1)))
+  (setq org-refile-targets '(("~/Org/Archive.org" :maxlevel . 2)
+                             ("~/Org/Tasks.org" :maxlevel . 2)))
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
   (dolist (face '((org-level-1 . 1.2)
