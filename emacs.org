@@ -470,6 +470,16 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 
 If =M-x markdown-preview= fails [[https://stackoverflow.com/questions/14231043/emacs-markdown-mode-error-on-preview-bin-bash-markdown-command-not-found][try installing a markdown parser like markdown]].
 
+**** YAML
+
+#+begin_src emacs-lisp
+
+  (use-package yaml-mode
+    :mode (("\\.yaml\\'" . yaml-mode)
+           ("\\.yml\\'" . yaml-mode)))
+
+#+end_src
+
 **** Javascript, Typescript, and JSX
 
 Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the language server]], and typescript globally via npm.
