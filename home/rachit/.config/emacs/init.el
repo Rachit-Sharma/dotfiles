@@ -287,6 +287,10 @@
    :prefix lsp-keymap-prefix
    "d" '(dap-hydra t :wk "debugger"))) ;; Automatically installs Node debug adapter if needed
 
+(use-package yaml-mode
+  :mode (("\\.yaml\\'" . yaml-mode)
+         ("\\.yml\\'" . yaml-mode)))
+
 (use-package rjsx-mode
   :mode (("\\.js\\'" . rjsx-mode)
          ("\\.jsx\\'" . rjsx-mode)
