@@ -309,7 +309,7 @@
   :custom
   (prettier-js-args '(
                       "--trailing-comma" "none"
-                      "arrow-parens" "avoid")))
+                      "--arrow-parens" "avoid")))
 
 (use-package json-mode
   :mode "\\.json\\'")
