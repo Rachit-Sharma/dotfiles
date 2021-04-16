@@ -522,7 +522,7 @@ Install prettier globally via npm.
     :custom
     (prettier-js-args '(
                         "--trailing-comma" "none"
-                        "arrow-parens" "avoid")))
+                        "--arrow-parens" "avoid")))
 
 #+end_src
 
