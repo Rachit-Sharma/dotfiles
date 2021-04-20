@@ -502,6 +502,16 @@ Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the languag
 
 #+end_src
 
+***** Add node_modules path to use local prettier and config
+
+#+begin_src emacs-lisp
+
+  (use-package add-node-modules-path
+    :after (rjsx-mode)
+    :hook (rjsx-mode . add-node-modules-path))
+
+#+end_src
+
 ***** Prettier
 
 Install prettier globally via npm.
@@ -509,10 +519,11 @@ Install prettier globally via npm.
 #+begin_src emacs-lisp
 
   (use-package prettier-js
-    :after (rjsx-mode)
+    :after (rjsx-mode add-node-modules-path)
     :hook (rjsx-mode . prettier-js-mode)
     :custom
     (prettier-js-args '(
+                        "--config-precedence" "prefer-file"
                         "--trailing-comma" "none"
                         "--arrow-parens" "avoid")))
 
