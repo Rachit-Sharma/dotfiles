@@ -305,11 +305,16 @@
   :custom
   (typescript-indent-level 2))
 
-(use-package prettier-js
+(use-package add-node-modules-path
   :after (rjsx-mode)
+  :hook (rjsx-mode . add-node-modules-path))
+
+(use-package prettier-js
+  :after (rjsx-mode add-node-modules-path)
   :hook (rjsx-mode . prettier-js-mode)
   :custom
   (prettier-js-args '(
+                      "--config-precedence" "prefer-file"
                       "--trailing-comma" "none"
                       "--arrow-parens" "avoid")))
 
