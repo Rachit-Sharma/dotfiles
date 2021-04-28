@@ -332,6 +332,17 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+(use-package lsp-origami
+  :hook (lsp-mode . lsp-origami-try-enable)
+  :config
+  (global-origami-mode))
+
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :custom
+  (highlight-indent-guides-method 'character)
+  (highlight-indent-guides-responsive 'top))
+
 (use-package editorconfig
   :config
   (editorconfig-mode 1))

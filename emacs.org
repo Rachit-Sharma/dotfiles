@@ -577,6 +577,29 @@ Install eslint globally, and it should work with flycheck automatically
 
 =M-x flymake-show-diagnostics-buffer= to show diagnostics.
 
+*** Folding with lsp-origami
+
+#+begin_src emacs-lisp
+
+  (use-package lsp-origami
+    :hook (lsp-mode . lsp-origami-try-enable)
+    :config
+    (global-origami-mode))
+
+#+end_src
+
+*** Highlight indent guides
+
+#+begin_src emacs-lisp
+
+  (use-package highlight-indent-guides
+    :hook (prog-mode . highlight-indent-guides-mode)
+    :custom
+    (highlight-indent-guides-method 'character)
+    (highlight-indent-guides-responsive 'top))
+
+#+end_src
+
 *** EditorConfig
 
 #+begin_src emacs-lisp
