@@ -247,6 +247,8 @@
 (use-package rainbow-delimiters
 	     :hook (prog-mode . rainbow-delimiters-mode))
 
+(add-hook 'prog-mode-hook 'electric-pair-mode)
+
 ;; Ensuring that breadcrumbs appear
 (defun rachit/lsp-mode-setup()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
