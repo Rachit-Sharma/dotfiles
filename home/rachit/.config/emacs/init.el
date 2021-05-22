@@ -428,6 +428,8 @@
 (use-package treemacs-evil
   :after (treemacs evil))
 
+(modify-syntax-entry ?_ "w")
+
 (use-package hydra
   :defer t)
 
