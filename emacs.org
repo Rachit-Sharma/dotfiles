@@ -744,6 +744,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
   (use-package treemacs-evil
     :after (treemacs evil))
 
+  (modify-syntax-entry ?_ "w")
 #+end_src
 
 ** Repeatable Keys
