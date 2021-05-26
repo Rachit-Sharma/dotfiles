@@ -481,7 +481,7 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 
 #+end_src
 
-*** Languags
+*** Languages
 
 **** Markdown
 
@@ -497,7 +497,7 @@ If =M-x markdown-preview= fails [[https://stackoverflow.com/questions/14231043/e
 
 #+end_src
 
-**** Javascript, Typescript, JSX, and LessCSS
+**** Javascript, Typescript, JSX, and CSS
 
 Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the language server]], and typescript globally via npm.
 
@@ -538,7 +538,7 @@ Install prettier globally via npm.
   (use-package prettier-js
     :after (rjsx-mode add-node-modules-path)
     :hook ((rjsx-mode . prettier-js-mode)
-           (less-css-mode . prettier-js-mode))
+           (css-mode . prettier-js-mode))
     :custom
     (prettier-js-args '(
                         "--config-precedence" "prefer-file"
