@@ -312,7 +312,7 @@
 (use-package prettier-js
   :after (rjsx-mode add-node-modules-path)
   :hook ((rjsx-mode . prettier-js-mode)
-         (less-css-mode . prettier-js-mode))
+         (css-mode . prettier-js-mode))
   :custom
   (prettier-js-args '(
                       "--config-precedence" "prefer-file"
