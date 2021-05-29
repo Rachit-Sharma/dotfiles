@@ -290,6 +290,9 @@
    :prefix lsp-keymap-prefix
    "d" '(dap-hydra t :wk "debugger"))) ;; Automatically installs Node debug adapter if needed
 
+(defun rachit/underscore-in-word ()
+  (modify-syntax-entry ?_ "w"))
+
 (use-package yaml-mode
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'" . yaml-mode)))
@@ -298,7 +301,8 @@
   :mode (("\\.js\\'" . rjsx-mode)
          ("\\.jsx\\'" . rjsx-mode)
          ("\\.tsx\\'" . rjsx-mode))
-  :hook (rjsx-mode . lsp-deferred)
+  :hook ((rjsx-mode . lsp-deferred)
+         (rjsx-mode . rachit/underscore-in-word))
   :custom
   (js-indent-level 2))
 
