@@ -514,12 +514,16 @@ Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the languag
 
 #+begin_src emacs-lisp
 
+  (defun rachit/emmet-set-jsx-classname ()
+    (setq emmet-expand-jsx-className? t))
+
   (use-package rjsx-mode
     :mode (("\\.js\\'" . rjsx-mode)
            ("\\.jsx\\'" . rjsx-mode)
            ("\\.tsx\\'" . rjsx-mode))
     :hook ((rjsx-mode . lsp-deferred)
-           (rjsx-mode . rachit/underscore-in-word))
+           (rjsx-mode . rachit/underscore-in-word)
+           (rjsx-mode . rachit/emmet-set-jsx-classname))
     :custom
     (js-indent-level 2))
 
@@ -538,6 +542,23 @@ Install [[https://emacs-lsp.github.io/lsp-mode/page/lsp-typescript/][the languag
   (use-package add-node-modules-path
     :after (rjsx-mode)
     :hook (rjsx-mode . add-node-modules-path))
+
+#+end_src
+
+***** Emmet Abbreviations
+
+#+begin_src emacs-lisp
+
+  (defun rachit/emmet-reset-jsx-classname ()
+    (setq emmet-expand-jsx-className? nil))
+
+  (use-package emmet-mode
+    :hook ((sgml-mode . emmet-mode)
+           (css-mode . emmet-mode)
+           (sgml-mode . rachit/emmet-reset-jsx-classname)
+           (css-mode . rachit/emmet-reset-jsx-classname))
+    :config
+    (setq emmet-move-cursor-between-quotes t))
 
 #+end_src
 
@@ -643,7 +664,8 @@ Install eslint globally, and it should work with flycheck automatically
     (:map company-active-map
                 ("<tab>" . company-complete-selection))
     (:map lsp-mode-map
-          ("<tab>" . company-indent-or-complete-common))
+          ("<tab>" . company-indent-or-complete-common)
+          ("C-c y" . company-yasnippet))
     :custom
     (company-minimum-prefix-length 1)
     (company-idle-delay 0.0))
@@ -684,7 +706,13 @@ Prescient also has an extension for Company to provide candidate sorting based o
 #+begin_src emacs-lisp
 
   (use-package yasnippet
-    :config (yas-global-mode))
+    :after company
+    :config
+    (yas-global-mode)
+    :custom
+    (lsp-enable-snippet t))
+
+  (use-package yasnippet-snippets)
 
 #+end_src
 
