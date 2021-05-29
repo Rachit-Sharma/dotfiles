@@ -294,12 +294,16 @@
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'" . yaml-mode)))
 
+(defun rachit/emmet-set-jsx-classname ()
+  (setq emmet-expand-jsx-className? t))
+
 (use-package rjsx-mode
   :mode (("\\.js\\'" . rjsx-mode)
          ("\\.jsx\\'" . rjsx-mode)
          ("\\.tsx\\'" . rjsx-mode))
   :hook ((rjsx-mode . lsp-deferred)
-         (rjsx-mode . rachit/underscore-in-word))
+         (rjsx-mode . rachit/underscore-in-word)
+         (rjsx-mode . rachit/emmet-set-jsx-classname))
   :custom
   (js-indent-level 2))
 
@@ -312,6 +316,17 @@
 (use-package add-node-modules-path
   :after (rjsx-mode)
   :hook (rjsx-mode . add-node-modules-path))
+
+(defun rachit/emmet-reset-jsx-classname ()
+  (setq emmet-expand-jsx-className? nil))
+
+(use-package emmet-mode
+  :hook ((sgml-mode . emmet-mode)
+         (css-mode . emmet-mode)
+         (sgml-mode . rachit/emmet-reset-jsx-classname)
+         (css-mode . rachit/emmet-reset-jsx-classname))
+  :config
+  (setq emmet-move-cursor-between-quotes t))
 
 (use-package prettier-js
   :after (rjsx-mode add-node-modules-path)
@@ -359,7 +374,8 @@
   (:map company-active-map
               ("<tab>" . company-complete-selection))
   (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common))
+        ("<tab>" . company-indent-or-complete-common)
+        ("C-c y" . company-yasnippet))
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
@@ -380,7 +396,13 @@
   :init (global-flycheck-mode))
 
 (use-package yasnippet
-  :config (yas-global-mode))
+  :after company
+  :config
+  (yas-global-mode)
+  :custom
+  (lsp-enable-snippet t))
+
+(use-package yasnippet-snippets)
 
 (use-package dired
   :ensure nil
