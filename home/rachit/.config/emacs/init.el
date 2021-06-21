@@ -257,7 +257,7 @@
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode)
   (setq gc-cons-threshold (* 100 1000 1000))
-  (setq read-process-output-max (* 3 1024 1024))) ;; 3mb
+  (setq read-process-output-max (* 5 1024 1024))) ;; 3mb
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
@@ -296,6 +296,9 @@
 (use-package yaml-mode
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'" . yaml-mode)))
+
+(use-package dockerfile-mode
+  :mode "Dockerfile\\'")
 
 (defun rachit/emmet-set-jsx-classname ()
   (setq emmet-expand-jsx-className? t))
