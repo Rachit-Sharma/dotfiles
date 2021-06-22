@@ -63,6 +63,9 @@
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (set-face-attribute 'default nil :height 150)
+(use-package default-text-scale
+  :config
+  (default-text-scale-mode 1))
 
 ;; You must run (all-the-icons-install-fonts)
 ;; once after installing this package!
