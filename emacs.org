@@ -94,6 +94,16 @@ This section configures basic UI settings that remove unneeded elements to make 
 
 #+end_src
 
+** Font
+
+#+begin_src emacs-lisp
+
+  (use-package default-text-scale
+    :config
+    (default-text-scale-mode 1))
+
+#+end_src
+
 * UI Configuration
 
 ** Better Modeline

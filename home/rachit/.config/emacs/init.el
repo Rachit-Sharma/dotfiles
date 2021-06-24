@@ -61,6 +61,10 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+(use-package default-text-scale
+  :config
+  (default-text-scale-mode 1))
+
 ;; You must run (all-the-icons-install-fonts)
 ;; once after installing this package!
 (use-package doom-modeline
