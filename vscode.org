@@ -1,0 +1,27 @@
+#+title: VS Code
+
+* Extensions
+
+These extensions would have to be manually added.
+
+- Angular.ng-template
+- christian-kohler.path-intellisense
+- CoenraadS.bracket-pair-colorizer-2
+- Dart-Code.dart-code
+- Dart-Code.flutter
+- dbaeumer.vscode-eslint
+- dsznajder.es7-react-js-snippets
+- eamodio.gitlens
+- EditorConfig.EditorConfig
+- esbenp.prettier-vscode
+- extr0py.vscode-relative-line-numbers
+- ghaschel.vscode-angular-html
+- johnpapa.Angular2
+- jpoissonnier.vscode-styled-components
+- PKief.material-icon-theme
+- VisualStudioExptTeam.vscodeintellicode
+- vscodevim.vim
+
+* Settings and Keybindings
+
+Settings and Keybindings can be found in ~~/.config/Code/User~ folder.
