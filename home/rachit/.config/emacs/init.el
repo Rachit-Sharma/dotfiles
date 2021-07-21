@@ -426,6 +426,18 @@
     "h" 'dired-single-up-directory
     "l" 'dired-single-buffer))
 
+(use-package perspective
+  :bind (("C-x b" . persp-counsel-switch-buffer)
+         ("C-x k" . persp-kill-buffer*))
+  :config
+  ;; Running `persp-mode' multiple times resets the perspective list...
+  (unless (equal persp-mode t)
+    (persp-mode)))
+
+(use-package treemacs-perspective
+  :after (treemacs perspective)
+  :config (treemacs-set-scope-type 'Perspectives))
+
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -479,6 +491,12 @@
   ("c" evil-window-delete "delete")
   ("SPC" nil "done" :exit t))
 
+(defhydra hydra-switch-perspectives (:timeout 4)
+  "switch perspectives"
+  ("h" persp-prev "move left")
+  ("l" persp-next "move right")
+  ("SPC" nil "done" :exit t))
+
 (use-package general
   :after evil
   :config
@@ -492,9 +510,11 @@
     "g" '(:ignore t :which-key "git")
     "gs" '(magit-status :which-key "magit status")
     "w" '(hydra-evil-windows/body :which-key "evil window management")
-    "b" '(ibuffer :which-key "ibuffer")
+    "s" '(hydra-switch-perspectives/body :which-key "switch perspectives")
+    "b" '(persp-ibuffer :which-key "persp-ibuffer")
     "p" '(:keymap projectile-command-map :package projectile :which-key "projectile")
-    "l" '(:keymap lsp-command-map :package lsp-mode :which-key "lsp")))
+    "l" '(:keymap lsp-command-map :package lsp-mode :which-key "lsp")
+    "x" '(:keymap perspective-map :package perspective :which-key "perspective")))
 
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
