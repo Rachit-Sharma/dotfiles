@@ -46,7 +46,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (set-fringe-mode 10)
-(desktop-save-mode 1)
+;; Saving session using perspective.el instead
+;; (desktop-save-mode 1)
 
 ;; (load-theme 'tango-dark)
 
@@ -427,7 +428,11 @@
 (use-package perspective
   :bind (("C-x b" . persp-counsel-switch-buffer)
          ("C-x k" . persp-kill-buffer*))
+  :custom
+  (persp-state-default-file "~/.emacs/auto-save-list/perspectives")
   :config
+  (add-hook 'kill-emacs-hook #'persp-state-save)
+  (add-hook 'emacs-startup-hook #'persp-state-load)
   ;; Running `persp-mode' multiple times resets the perspective list...
   (unless (equal persp-mode t)
     (persp-mode)))
