@@ -127,3 +127,6 @@ PATH="$ANDROID_SDK/platform-tools:$PATH"
 # Flutter
 PATH="$HOME/flutter/bin:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/brave-browser"
+
+# Adoptium OpenJDK
+PATH="$HOME/java/jdk-11.0.12+7/bin:$PATH"
