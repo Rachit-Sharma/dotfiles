@@ -430,7 +430,7 @@
   :bind (("C-x b" . persp-counsel-switch-buffer)
          ("C-x k" . persp-kill-buffer*))
   :custom
-  (persp-state-default-file "~/.emacs/auto-save-list/perspectives")
+  (persp-state-default-file "~/.emacs.d/auto-save-list/perspectives")
   :config
   (add-hook 'kill-emacs-hook #'persp-state-save)
   :init
