@@ -7,3 +7,6 @@ set -x PATH $PATH $ANDROID_SDK/platform-tools
 set -x PATH $PATH $HOME/flutter/bin
 # Flutter needs chrome executable to debug web apps
 set -x CHROME_EXECUTABLE /usr/bin/brave-browser
+
+# add java to Path
+set -x PATH $PATH $HOME/java/jdk-11.0.12+7/bin
