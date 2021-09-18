@@ -352,6 +352,8 @@
 (use-package lsp-dart
   :hook (dart-mode . lsp-deferred))
 
+(use-package lsp-java)
+
 ;; We need to add $PATH for node to run
 (use-package exec-path-from-shell
   :init
