@@ -616,10 +616,17 @@ Install eslint globally, and it should work with flycheck automatically
 **** Java
 
 lsp-java will automatically detect when the server is missing and it will download Eclipse JDT Language Server before the first startup.
+Install lombok and update the below -javaagent if required.
 
 #+begin_src emacs-lisp
 
-  (use-package lsp-java)
+  (use-package lsp-java
+    :custom
+    (lsp-java-vmargs '("-noverify"
+                       "-Xmx1G"
+                       "-XX:+UseG1GC"
+                       "-XX:+UseStringDeduplication"
+                       "-javaagent:/home/rachit/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar")))
 
 #+end_src
 

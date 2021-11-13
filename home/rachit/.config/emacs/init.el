@@ -352,7 +352,13 @@
 (use-package lsp-dart
   :hook (dart-mode . lsp-deferred))
 
-(use-package lsp-java)
+(use-package lsp-java
+  :custom
+  (lsp-java-vmargs '("-noverify"
+                     "-Xmx1G"
+                     "-XX:+UseG1GC"
+                     "-XX:+UseStringDeduplication"
+                     "-javaagent:/home/rachit/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar")))
 
 ;; We need to add $PATH for node to run
 (use-package exec-path-from-shell
