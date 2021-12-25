@@ -1,3 +1,6 @@
+# Set the default editor
+set -x EDITOR nvim
+
 # set ANDROID_SDK environment variable
 set -x ANDROID_SDK $HOME/Android/Sdk
 # set PATH to include Android studio platform tools
