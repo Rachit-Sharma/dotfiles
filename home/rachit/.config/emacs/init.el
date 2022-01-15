@@ -309,8 +309,7 @@
 
 (use-package rjsx-mode
   :mode (("\\.js\\'" . rjsx-mode)
-         ("\\.jsx\\'" . rjsx-mode)
-         ("\\.tsx\\'" . rjsx-mode))
+         ("\\.jsx\\'" . rjsx-mode))
   :hook ((rjsx-mode . lsp-deferred)
          (rjsx-mode . rachit/underscore-in-word)
          (rjsx-mode . rachit/emmet-set-jsx-classname))
@@ -322,6 +321,22 @@
   :hook (typescript-mode . lsp-deferred)
   :custom
   (typescript-indent-level 2))
+
+(defun rachit/setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (setq tide-format-options '(:indentSize 2)))
+
+(use-package web-mode
+  :mode "\\.tsx\\'"
+  :hook (web-mode . lsp-deferred))
+
+(use-package tide
+  :after (web-mode)
+  :hook (web-mode . rachit/setup-tide-mode))
 
 (use-package add-node-modules-path
   :after (rjsx-mode)
@@ -341,7 +356,8 @@
 (use-package prettier-js
   :after (rjsx-mode add-node-modules-path)
   :hook ((rjsx-mode . prettier-js-mode)
-         (css-mode . prettier-js-mode))
+         (css-mode . prettier-js-mode)
+         (web-mode . prettier-js-mode))
   :custom
   (prettier-js-args '(
                       "--config-precedence" "prefer-file"
