@@ -74,17 +74,24 @@ This section configures basic UI settings that remove unneeded elements to make 
 
   (setq inhibit-startup-message t)
 
+  (global-tab-line-mode 1)
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (set-fringe-mode 10)
   ;; Saving session using perspective.el instead
   ;; (desktop-save-mode 1)
+  ;; Remember where you left off in a file even when its buffer is closed
+  (save-place-mode 1)
 
   ;; (load-theme 'tango-dark)
 
   (column-number-mode)
   (global-display-line-numbers-mode t)
   (setq display-line-numbers-type 'relative)
+
+  ;; Remember minibuffer completions
+  (setq history-length 25)
+  (savehist-mode 1)
 
   ;; Disable line numbers for some modes
   (dolist (mode '(org-mode-hook
@@ -148,6 +155,32 @@ This section configures basic UI settings that remove unneeded elements to make 
 
     ;; Corrects (and improves) org-mode's native fontification.
     (doom-themes-org-config))
+
+#+end_src
+
+** Nyan-Mode
+
+#+begin_src emacs-lisp
+
+  (use-package nyan-mode
+    :custom
+    (nyan-animate-nyancat t)
+    (nyan-wavy-trail t)
+    :config
+    (nyan-mode 1)
+    (scroll-bar-mode -1))
+
+#+end_src
+
+** Beacon
+
+Don't lose track of cursor when jumping around.
+
+#+begin_src emacs-lisp
+
+  (use-package beacon
+    :config
+    (beacon-mode 1))
 
 #+end_src
 
@@ -369,6 +402,20 @@ This snippet adds a hook to =org-mode= buffers so that =rachit/org-babel-tangle-
 #+end_src
 
 * Development
+
+** Minimap
+
+#+begin_src emacs-lisp
+
+  (use-package minimap
+    :bind ("C-c m" . minimap-mode)
+    :custom
+    (minimap-window-location "right")
+    (minimap-minimum-width 15)
+    (minimap-width-fraction 0.1)
+    (minimap-hide-fringes 1))
+
+#+end_src
 
 ** Projectile
 
@@ -790,6 +837,16 @@ Dired opens a new buffer for every directory it visits. Dired Single helps not d
 #+end_src
 
 * Buffer Management
+
+** Global Auto Revert Mode
+
+Automatically revert buffer if file is changed
+
+#+begin_src emacs-lisp
+
+  (global-auto-revert-mode 1)
+
+#+end_src
 
 ** Perspective
 
