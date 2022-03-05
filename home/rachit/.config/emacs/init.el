@@ -43,18 +43,24 @@
 
 (setq inhibit-startup-message t)
 
-(scroll-bar-mode -1)
+(global-tab-line-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (set-fringe-mode 10)
 ;; Saving session using perspective.el instead
 ;; (desktop-save-mode 1)
+;; Remember where you left off in a file even when its buffer is closed
+(save-place-mode 1)
 
 ;; (load-theme 'tango-dark)
 
 (column-number-mode)
 (global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
+
+;; Remember minibuffer completions
+(setq history-length 25)
+(savehist-mode 1)
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
@@ -93,6 +99,18 @@
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
+
+(use-package nyan-mode
+  :custom
+  (nyan-animate-nyancat t)
+  (nyan-wavy-trail t)
+  :config
+  (nyan-mode 1)
+  (scroll-bar-mode -1))
+
+(use-package beacon
+  :config
+  (beacon-mode 1))
 
 (use-package which-key
   :defer 0
@@ -224,6 +242,14 @@
 ;;      (org-babel-tangle))))
 
 ;;(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rachit/org-babel-tangle-config)))
+
+(use-package minimap
+  :bind ("C-c m" . minimap-mode)
+  :custom
+  (minimap-window-location "right")
+  (minimap-minimum-width 15)
+  (minimap-width-fraction 0.1)
+  (minimap-hide-fringes 1))
 
 (use-package projectile
   :diminish projectile-mode
@@ -450,6 +476,8 @@
   (evil-collection-define-key 'normal 'dired-mode-map
     "h" 'dired-single-up-directory
     "l" 'dired-single-buffer))
+
+(global-auto-revert-mode 1)
 
 (use-package perspective
   :hook (persp-mode . persp-state-load)
