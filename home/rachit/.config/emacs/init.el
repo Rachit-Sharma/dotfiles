@@ -485,6 +485,7 @@
          ("C-x k" . persp-kill-buffer*))
   :custom
   (persp-state-default-file "~/.config/emacs/auto-save-list/perspectives")
+  (persp-mode-prefix-key (kbd "C-c M-p"))
   :config
   (add-hook 'kill-emacs-hook #'persp-state-save)
   :init
