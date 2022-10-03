@@ -174,6 +174,10 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
+(use-package treemacs
+  :bind (:map global-map
+              ("C-c t" . treemacs)))
+
 (defun rachit/org-mode-setup ()
   (org-indent-mode)
   (visual-line-mode 1))
@@ -501,8 +505,7 @@
 
 (use-package treemacs-perspective
   :after (treemacs perspective)
-  :config (treemacs-set-scope-type 'Perspectives)
-  :bind ("C-c t" . treemacs))
+  :config (treemacs-set-scope-type 'Perspectives))
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)

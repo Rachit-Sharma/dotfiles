@@ -281,6 +281,16 @@ prescient.el provides some helpful behavior for sorting Ivy completion candidate
 
 #+end_src
 
+** Treemacs
+
+#+begin_src emacs-lisp
+
+  (use-package treemacs
+    :bind (:map global-map
+                ("C-c t" . treemacs)))
+
+#+end_src
+
 * Org Mode
 
 [[https://orgmode.org/][Org Mode]] is one of the hallmark features of Emacs. It is a rich document editor, project planner, task and time tracker, blogging engine, and literate coding utility all wrapped up in one package.
@@ -883,8 +893,7 @@ Perspective creates divisions in the sets of buffers. Kind of like what workspac
 
   (use-package treemacs-perspective
     :after (treemacs perspective)
-    :config (treemacs-set-scope-type 'Perspectives)
-    :bind ("C-c t" . treemacs))
+    :config (treemacs-set-scope-type 'Perspectives))
 
 #+end_src
 
