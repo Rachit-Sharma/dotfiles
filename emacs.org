@@ -658,6 +658,18 @@ Install prettier globally via npm.
 
 Install eslint globally, and it should work with flycheck automatically
 
+***** JS-DOC
+
+#+begin_src emacs-lisp
+
+  (use-package js-doc
+    :after (rjsx-mode)
+    :bind (:map rjsx-mode-map
+                ("C-c i" . js-doc-insert-function-doc)
+                ("@" . js-doc-insert-tag)))
+
+#+end_src
+
 **** JSON
 
 #+begin_src emacs-lisp
@@ -869,7 +881,8 @@ Perspective creates divisions in the sets of buffers. Kind of like what workspac
 
   (use-package treemacs-perspective
     :after (treemacs perspective)
-    :config (treemacs-set-scope-type 'Perspectives))
+    :config (treemacs-set-scope-type 'Perspectives)
+    :bind ("C-c t" . treemacs))
 
 #+end_src
 
@@ -980,7 +993,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
 ** Comment/Uncomment Lines
 
-=M-;= does commnet, but the behaviour sometimes isn't exactly what you'd expect
+=M-;= does comment, but the behaviour sometimes isn't exactly what you'd expect
 
 #+begin_src emacs-lisp
 
