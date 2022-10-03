@@ -390,6 +390,12 @@
                       "--trailing-comma" "none"
                       "--arrow-parens" "avoid")))
 
+(use-package js-doc
+  :after (rjsx-mode)
+  :bind (:map rjsx-mode-map
+              ("C-c i" . js-doc-insert-function-doc)
+              ("@" . js-doc-insert-tag)))
+
 (use-package json-mode
   :mode "\\.json\\'")
 
@@ -495,7 +501,8 @@
 
 (use-package treemacs-perspective
   :after (treemacs perspective)
-  :config (treemacs-set-scope-type 'Perspectives))
+  :config (treemacs-set-scope-type 'Perspectives)
+  :bind ("C-c t" . treemacs))
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
