@@ -9,6 +9,8 @@
     "gitlens.codeLens.scopes": ["document"],
     "editor.suggestSelection": "first",
     "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.guides.bracketPairs": "active",
+    "editor.stickyScroll.enabled": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "keyboard.dispatch": "keyCode",
     "vim.useSystemClipboard": true,
