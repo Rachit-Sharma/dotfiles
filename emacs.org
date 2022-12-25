@@ -280,6 +280,16 @@ prescient.el provides some helpful behavior for sorting Ivy completion candidate
 
 #+end_src
 
+** Treemacs
+
+#+begin_src emacs-lisp
+
+  (use-package treemacs
+    :bind (:map global-map
+                ("C-c t" . treemacs)))
+
+#+end_src
+
 * Org Mode
 
 [[https://orgmode.org/][Org Mode]] is one of the hallmark features of Emacs. It is a rich document editor, project planner, task and time tracker, blogging engine, and literate coding utility all wrapped up in one package.
@@ -658,6 +668,18 @@ Install prettier globally via npm.
 
 Install eslint globally, and it should work with flycheck automatically
 
+***** JS-DOC
+
+#+begin_src emacs-lisp
+
+  (use-package js-doc
+    :after (rjsx-mode)
+    :bind (:map rjsx-mode-map
+                ("C-c i" . js-doc-insert-function-doc)
+                ("@" . js-doc-insert-tag)))
+
+#+end_src
+
 **** JSON
 
 #+begin_src emacs-lisp
@@ -980,7 +1002,7 @@ This configuration uses [[https://evil.readthedocs.io/en/latest/index.html][evil
 
 ** Comment/Uncomment Lines
 
-=M-;= does commnet, but the behaviour sometimes isn't exactly what you'd expect
+=M-;= does comment, but the behaviour sometimes isn't exactly what you'd expect
 
 #+begin_src emacs-lisp
 
