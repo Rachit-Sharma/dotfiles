@@ -1,7 +1,4 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.keymap.set("n", "<leader>t", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>t", vim.cmd.NvimTreeToggle, { desc = "Toggle Nvim Tree" })
 
 -- empty setup using defaults
 require("nvim-tree").setup()

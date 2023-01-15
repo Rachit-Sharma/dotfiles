@@ -135,3 +135,9 @@ export CHROME_EXECUTABLE="/usr/bin/brave-browser"
 PATH="$HOME/java/jdk-11.0.12+7/bin:$PATH"
 # Maven
 PATH="$HOME/java/apache-maven-3.8.2/bin:$PATH"
+
+# Go
+PATH="/usr/local/go/bin:$PATH"
+
+# Rust
+PATH="$HOME/.cargo/bin:$PATH"

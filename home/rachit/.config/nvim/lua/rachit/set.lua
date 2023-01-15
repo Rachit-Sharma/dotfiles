@@ -1,3 +1,4 @@
+-- modicator also wants this setting
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -18,9 +19,29 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- nvim-tree also likes this setting
+-- nvim-tree also wants this setting
+-- so does modicator
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+-- modicator wants this setting
+vim.opt.cursorline = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+
+-- nvim-tree wants these
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- for neovide
+vim.opt.guifont = { "FantasqueSansMono Nerd Font:h13" }
+vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_no_idle = true
+vim.g.neovide_confirm_quit = true
+vim.g.neovide_remember_window_size = true
+vim.g.neovide_cursor_vfx_mode = "railgun"
+vim.g.neovide_cursor_vfx_particle_lifetime = 0.7
+vim.g.neovide_cursor_vfx_particle_speed = 15
+vim.g.neovide_cursor_vfx_particle_phase = 2
+vim.g.neovide_cursor_vfx_particle_curl = 0.3
+vim.g.neovide_cursor_antialiasing = true

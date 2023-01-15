@@ -15,3 +15,9 @@ set -x CHROME_EXECUTABLE /usr/bin/brave-browser
 set -x PATH $PATH $HOME/java/jdk-11.0.12+7/bin
 # add mvn to Path
 set -x PATH $PATH $HOME/java/apache-maven-3.8.2/bin
+
+# add go to Path
+set -x PATH $PATH /usr/local/go/bin
+
+# add cargo to Path
+set -x PATH $PATH $HOME/.cargo/bin
