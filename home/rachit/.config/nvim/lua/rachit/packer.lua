@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
     -- Lua
@@ -42,19 +42,9 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     use 'windwp/windline.nvim'
-
-    use({
-        "utilyre/barbecue.nvim",
-        branch = "dev", -- omit this if you only want stable updates
-        requires = {
-            "neovim/nvim-lspconfig",
-            "smiteshp/nvim-navic",
-            "kyazdani42/nvim-web-devicons", -- optional dependency
-        },
-        after = "nvim-web-devicons" -- keep this if you're using NvChad
-    })
 
     use 'mbbill/undotree'
 
@@ -82,5 +72,56 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
+
+    use 'norcalli/nvim-colorizer.lua'
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        -- tag = 'release'
+    }
+
+    use "windwp/nvim-autopairs"
+
+    use 'windwp/nvim-ts-autotag'
+
+    use 'numToStr/Comment.nvim'
+
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+    use 'mattn/emmet-vim'
+
+    -- use 'stevearc/dressing.nvim'
+
+    use 'junegunn/gv.vim'
+
+    use "lukas-reineke/indent-blankline.nvim"
+
+    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+
+    use 'romgrk/fzy-lua-native'
+    use 'gelguy/wilder.nvim'
+
+    use 'onsails/lspkind.nvim'
+
+    use 'lvimuser/lsp-inlayhints.nvim'
+
+    use 'luisdavim/pretty-folds'
+
+    use "ray-x/lsp_signature.nvim"
+
+    use "RRethy/vim-illuminate"
+
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main"
+    })
+
+    use "folke/which-key.nvim"
+
+    use { 'melkster/modicator.nvim',
+        after = 'catppuccin', -- Add your colorscheme plugin here
+    }
+
+    use 'j-hui/fidget.nvim'
 
 end)
