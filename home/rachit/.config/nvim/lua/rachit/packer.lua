@@ -72,6 +72,7 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     use 'norcalli/nvim-colorizer.lua'
 
