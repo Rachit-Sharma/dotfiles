@@ -26,3 +26,29 @@ lsp.setup_nvim_cmp({
 lsp.setup()
 
 vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "LSP Format" })
+
+-- tsserver organize imports
+-- https://www.reddit.com/r/neovim/comments/lwz8l7/how_to_use_tsservers_organize_imports_with_nvim/
+local function organize_imports()
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+end
+
+local lsp_attach = function()
+    vim.keymap.set('n', '<leader>lro', organize_imports, { desc = 'Organize Imports' })
+    -- More keybindings and commands....
+end
+
+require 'lspconfig'.tsserver.setup {
+    on_attach = lsp_attach,
+    commands = {
+        OrganizeImports = {
+            organize_imports,
+            description = "Organize Imports"
+        }
+    }
+}
