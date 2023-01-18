@@ -39,6 +39,7 @@ vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_no_idle = true
 vim.g.neovide_confirm_quit = true
 vim.g.neovide_remember_window_size = true
+vim.g.neovide_input_macos_alt_is_meta=true
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_cursor_vfx_particle_lifetime = 0.7
 vim.g.neovide_cursor_vfx_particle_speed = 15
