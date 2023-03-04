@@ -18,6 +18,7 @@ set -x PATH $PATH $HOME/java/apache-maven-3.8.2/bin
 
 # add go to Path
 set -x PATH $PATH /usr/local/go/bin
+set -x PATH $PATH $HOME/go/bin
 
 # add cargo to Path
 set -x PATH $PATH $HOME/.cargo/bin
