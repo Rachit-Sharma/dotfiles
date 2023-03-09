@@ -35,6 +35,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.beautysh,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.yamlfmt,
+		null_ls.builtins.formatting.gofmt,
 	},
 	on_attach = on_attach,
 })
