@@ -135,6 +135,8 @@ export CHROME_EXECUTABLE="/usr/bin/brave-browser"
 PATH="$HOME/java/jdk-11.0.12+7/bin:$PATH"
 # Maven
 PATH="$HOME/java/apache-maven-3.8.2/bin:$PATH"
+# Lombok in JDTLS
+export JDTLS_JVM_ARGS="$HOME/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar"
 
 # Go
 PATH="/usr/local/go/bin:$PATH"
