@@ -15,6 +15,8 @@ set -x CHROME_EXECUTABLE /usr/bin/brave-browser
 set -x PATH $PATH $HOME/java/jdk-11.0.12+7/bin
 # add mvn to Path
 set -x PATH $PATH $HOME/java/apache-maven-3.8.2/bin
+# add lombok to jdtls jvm args
+set -x JDTLS_JVM_ARGS "-javaagent:$HOME/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar"
 
 # add go to Path
 set -x PATH $PATH /usr/local/go/bin
