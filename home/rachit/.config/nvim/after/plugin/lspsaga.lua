@@ -1,7 +1,7 @@
 local saga = require("lspsaga")
 
 saga.setup({
-    -- your configuration
+	-- your configuration
 })
 
 -- Lsp finder find the symbol definition implement reference
@@ -11,7 +11,7 @@ saga.setup({
 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
 -- Code action
-vim.keymap.set({"n","v"}, "<leader>lca", "<cmd>Lspsaga code_action<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>lca", "<cmd>Lspsaga code_action<CR>")
 
 -- Rename
 vim.keymap.set("n", "<leader>lgr", "<cmd>Lspsaga rename<CR>")
@@ -39,14 +39,14 @@ vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 
 -- Diagnostic jump with filter like Only jump to error
 vim.keymap.set("n", "[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end)
 vim.keymap.set("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end)
 
 -- Toggle Outline
-vim.keymap.set("n","<leader>lo", "<cmd>Lspsaga outline<CR>")
+vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<CR>")
 
 -- Hover Doc
 -- if there has no hover will have a notify no information available
@@ -58,4 +58,4 @@ vim.keymap.set("n", "<Leader>lci", "<cmd>Lspsaga incoming_calls<CR>")
 vim.keymap.set("n", "<Leader>lco", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Float terminal
-vim.keymap.set({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
+vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
