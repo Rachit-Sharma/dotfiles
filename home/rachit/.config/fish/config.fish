@@ -12,7 +12,7 @@ set -x PATH $PATH $HOME/flutter/bin
 set -x CHROME_EXECUTABLE /usr/bin/brave-browser
 
 # add java to Path
-set -x PATH $PATH $HOME/java/jdk-11.0.12+7/bin
+set -x PATH $PATH $HOME/java/jdk-17.0.7+7/bin
 # add mvn to Path
 set -x PATH $PATH $HOME/java/apache-maven-3.8.2/bin
 # add lombok to jdtls jvm args
