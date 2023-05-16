@@ -1,3 +1,14 @@
-require("lsp_lines").setup()
+local lsp_lines = require("lsp_lines")
+lsp_lines.setup()
+lsp_lines.toggle()
 
-vim.keymap.set("", "<Leader>lst", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+local isVimDiagnosticVirtualTextEnabled = true
+local toggleLspLinesAndVimDiagnosticVirtualText = function()
+	isVimDiagnosticVirtualTextEnabled = not isVimDiagnosticVirtualTextEnabled
+	lsp_lines.toggle()
+	vim.diagnostic.config({
+		virtual_text = isVimDiagnosticVirtualTextEnabled,
+	})
+end
+
+vim.keymap.set("", "<Leader>lst", toggleLspLinesAndVimDiagnosticVirtualText, { desc = "Toggle lsp_lines" })
