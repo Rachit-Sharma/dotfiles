@@ -15,7 +15,6 @@ require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
 local cmp = require("cmp")
-local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 local cmp_action = require("lsp-zero").cmp_action()
 
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -45,6 +44,7 @@ cmp.setup({
 	mapping = {
 		["<Tab>"] = cmp_action.luasnip_supertab(),
 		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp_action.toggle_completion(),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
