@@ -19,7 +19,13 @@ lsp.set_sign_icons({
 -- (Optional) Configure lua language server for neovim
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
-lsp.setup()
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = {},
+	handlers = {
+		lsp.default_setup,
+	},
+})
 
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
@@ -28,11 +34,11 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
 	sources = {
-		{ name = "path" },
-		{ name = "buffer" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
+		{ name = "path" },
+		{ name = "buffer" },
 	},
 	formatting = {
 		format = lspkind.cmp_format({
