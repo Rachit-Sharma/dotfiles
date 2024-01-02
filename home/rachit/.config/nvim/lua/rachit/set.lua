@@ -34,7 +34,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- for neovide
-vim.opt.guifont = { "FantasqueSansM Nerd Font Mono:h15" }
+vim.opt.guifont = { "VictorMono Nerd Font,FantasqueSansM Nerd Font Mono:h15" }
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_no_idle = true
 vim.g.neovide_confirm_quit = true
