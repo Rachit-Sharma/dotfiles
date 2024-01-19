@@ -119,8 +119,6 @@ require("lazy").setup({
 
 	"onsails/lspkind.nvim",
 
-	"lvimuser/lsp-inlayhints.nvim",
-
 	"luisdavim/pretty-folds",
 
 	"ray-x/lsp_signature.nvim",

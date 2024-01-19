@@ -79,7 +79,8 @@ end
 
 local tsserver_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>lro", organize_imports, { desc = "Organize Imports" })
-	require("lsp-inlayhints").on_attach(client, bufnr)
+	-- require("lsp-inlayhints").on_attach(client, bufnr)
+	vim.lsp.inlay_hint.enable(bufnr, true)
 	-- More keybindings and commands....
 end
 
@@ -112,6 +113,28 @@ require("lspconfig").tsserver.setup({
 				includeInlayPropertyDeclarationTypeHints = true,
 				includeInlayFunctionLikeReturnTypeHints = true,
 				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
+})
+
+local gopls_attach = function(client, bufnr)
+	-- require("lsp-inlayhints").on_attach(client, bufnr)
+	vim.lsp.inlay_hint.enable(bufnr, true)
+	-- More keybindings and commands....
+end
+
+require("lspconfig").gopls.setup({
+	on_attach = gopls_attach,
+	settings = {
+		gopls = {
+			hints = {
+				assignVariableTypes = true,
+				compositeLiteralFields = true,
+				constantValues = true,
+				functionTypeParameters = true,
+				parameterNames = true,
+				rangeVariableTypes = true,
 			},
 		},
 	},
