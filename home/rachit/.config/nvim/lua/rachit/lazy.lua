@@ -146,6 +146,12 @@ require("lazy").setup({
 	"j-hui/fidget.nvim",
 
 	"vim-scripts/zoom.vim",
+
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 }, {
 	checker = {
 		enabled = false,
