@@ -84,7 +84,7 @@ local tsserver_attach = function(client, bufnr)
 	-- More keybindings and commands....
 end
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
 	on_attach = tsserver_attach,
 	commands = {
 		OrganizeImports = {
