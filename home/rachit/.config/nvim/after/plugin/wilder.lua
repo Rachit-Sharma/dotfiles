@@ -12,9 +12,11 @@ wilder.set_option(
         reverse = 0, -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
         left = { " ", wilder.popupmenu_devicons() },
         highlighter = {
-            wilder.lua_pcre2_highlighter(), -- requires `luarocks install pcre2`
+            -- commented the below because neovim was unable
+            -- to `require('pcre2')` inside the wilder code
+            -- wilder.lua_pcre2_highlighter(), -- requires `luarocks install pcre2`
             wilder.lua_fzy_highlighter(), -- requires fzy-lua-native vim plugin found
-            -- at https://github.com/romgrk/fzy-lua-native
+                                          -- at https://github.com/romgrk/fzy-lua-native
         },
         highlights = {
             accent = wilder.make_hl(
